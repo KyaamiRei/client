@@ -4,7 +4,6 @@ import { getAuthToken, setAuthToken } from "@/shared/api/auth-token";
 import type {
   AuthLoginRequest,
   AuthRegisterRequest,
-  AuthResponse,
   UserPublic,
 } from "@/shared/api/types";
 import { create } from "zustand";
