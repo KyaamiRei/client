@@ -1,5 +1,4 @@
 import type { UserPublic } from "@/shared/api/types";
-import React from "react";
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "../ui/sidebar";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { getUserInitials } from "@/lib/utils";

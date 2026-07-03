@@ -1,3 +1,4 @@
+import { capacity } from "./../../../.kilo/node_modules/effect/src/PartitionedSemaphore";
 export type UserPublic = {
   id: string;
   email: string;
@@ -33,4 +34,41 @@ export type ApiFieldError = {
 export type ApiErrorResponse = {
   message: string;
   errors?: ApiFieldError[];
+};
+
+export type EventDTO = {
+  id: string;
+  title: string;
+  description: string;
+  capacity: number;
+  address: string;
+  ownerId: string;
+  startedAt: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type CreateEventRequest = {
+  title: string;
+  description: string;
+  capacity: number;
+  address: string;
+  startedAt: string;
+};
+
+export type UpdateEventRequest = Partial<CreateEventRequest>;
+
+export type JoinEventResponse = {
+  message: string;
+  participation: {
+    id: string;
+    userId: string;
+    eventId: string;
+    joinedAt: string;
+  };
+};
+
+export type JoinedEventItem = {
+  joinedAt: string;
+  event: EventDTO;
 };
