@@ -18,6 +18,7 @@ type EventDetailsProps = {
   eventsError: string | null;
   onJoin: () => void;
   onLeave: () => void;
+  onRemove: () => void;
 };
 
 export const EventDetails = ({
@@ -28,6 +29,7 @@ export const EventDetails = ({
   eventsError,
   onJoin,
   onLeave,
+  onRemove,
 }: EventDetailsProps) => {
   return (
     <>
@@ -60,16 +62,26 @@ export const EventDetails = ({
         <CardFooter className="flex flex-wrap gap-2 border-t">
           {isOwner ? (
             <>
-              <p className="mr-auto text-sm text-muted-foreground">
+              <p className="m-auto text-sm text-muted-foreground">
                 Вы являетесь организатором
               </p>
-              <Button variant="outline" size="sm" asChild>
+              <Button
+                variant="destructive"
+                size="sm"
+                onClick={onRemove}
+                disabled={mutationLoading}
+                asChild
+              >
+                <Link to={`/events/${event.id}/delete`}>Удалить</Link>
+              </Button>
+              <Button variant="outline" size="sm">
                 <Link to={`/events/${event.id}/edit`}>Редактировать</Link>
               </Button>
             </>
           ) : isJoined ? (
             <Button
               variant="outline"
+              size="sm"
               onClick={() => onLeave()}
               disabled={mutationLoading}
             >

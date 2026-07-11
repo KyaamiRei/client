@@ -4,7 +4,7 @@ import { useEventById } from "@/hooks/use-event-by-id";
 import { useAuthStore } from "@/stores/auth-store";
 import { useEventsStore } from "@/stores/events-store";
 import { ArrowLeft } from "lucide-react";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { EventDetails } from "../components/event-details";
 
 export const EventDetailsPage = () => {
@@ -13,6 +13,8 @@ export const EventDetailsPage = () => {
   const joinedEvents = useEventsStore((state) => state.joinedEvents);
   const joinEvent = useEventsStore((state) => state.joinEvent);
   const leaveEvent = useEventsStore((state) => state.leaveEvent);
+  const removeEvent = useEventsStore((state) => state.removeEvent);
+  const navigate = useNavigate();
   const mutationLoading = useEventsStore((state) => state.mutationLoading);
   const eventError = useEventsStore((state) => state.evetnsError);
 
@@ -60,6 +62,11 @@ export const EventDetailsPage = () => {
     await leaveEvent(eventId);
   };
 
+  const handleRemove = async () => {
+    await removeEvent(eventId);
+    navigate("/events", { replace: true });
+  };
+
   return (
     <PageShell title={event.title}>
       <div className="m-auto flex w-full max-w-2xl flex-col gap-4 ">
@@ -78,6 +85,7 @@ export const EventDetailsPage = () => {
           eventsError={eventError}
           onJoin={() => handleJoin()}
           onLeave={() => handleLeave()}
+          onRemove={() => handleRemove()}
         />
       </div>
     </PageShell>
