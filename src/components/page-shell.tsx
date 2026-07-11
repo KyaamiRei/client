@@ -5,7 +5,7 @@ type PageShellProps = {
   children: React.ReactNode;
 };
 
-export const PageShell = ({ children, title }: PageShellProps) => {
+export const PageShell = ({ title, children }: PageShellProps) => {
   return (
     <section className="w-full min-w-0">
       <h1 className="mb-2 font-heading text-2xl font-semibold tracking-tight">

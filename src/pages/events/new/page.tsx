@@ -1,4 +1,3 @@
-import React from "react";
 import { EventCreateForm } from "../components/event-create-form";
 
 export const NewEventsPage = () => {

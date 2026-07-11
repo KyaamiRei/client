@@ -8,7 +8,7 @@ import { cn, DATETIME_LOCAL_INPUT_FORMAT } from "@/lib/utils";
 import type { CreateEventRequest } from "@/shared/api/types";
 import { formatISO, isValid, parse } from "date-fns";
 import { ArrowLeft } from "lucide-react";
-import React, { useState, type SubmitEvent } from "react";
+import { useState, type SubmitEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 type EventFormValues = CreateEventRequest;

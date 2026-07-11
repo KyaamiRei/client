@@ -1,4 +1,3 @@
-import { capacity } from "./../../../.kilo/node_modules/effect/src/PartitionedSemaphore";
 export type UserPublic = {
   id: string;
   email: string;
