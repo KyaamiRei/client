@@ -41,6 +41,10 @@ export const EventDetails = ({
         </CardHeader>
         <CardContent className="space-y-4 text-sm">
           <div>
+            <p className="text-muted-foreground">Описание </p>
+            <p>{event.description}</p>
+          </div>
+          <div>
             <p className="text-muted-foreground">Когда</p>
             <p>{formatStartsAt(event.startedAt)}</p>
           </div>
@@ -72,7 +76,11 @@ export const EventDetails = ({
               Покинуть мероприятие
             </Button>
           ) : (
-            <Button size="sm" onClick={() => onJoin()} disabled={mutationLoading}>
+            <Button
+              size="sm"
+              onClick={() => onJoin()}
+              disabled={mutationLoading}
+            >
               Присоединиться
             </Button>
           )}
